@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Modal, Header } from 'semantic-ui-react';
 import axios from 'axios';
+import SERVER_URL from "../../utils/constants.js";
 
 function Delete() {
 
@@ -15,7 +16,7 @@ function Delete() {
   }
 
   const deleteRecord = () => {
-    const endpointURL = `http://localhost:8080/requests/${id}`;
+    const endpointURL = `${SERVER_URL}/requests/${id}`;
     axios.delete(endpointURL)
       .then(handleResponseDelete)
       .catch(err => console.log(err));
@@ -29,7 +30,7 @@ function Delete() {
 
   const handleChangeID = (driverID) => {
     setID(driverID);
-    const endpointURL = `http://localhost:8080/requests/${driverID}`;
+    const endpointURL = `${SERVER_URL}/requests/${driverID}`;
     axios.get(endpointURL)
       .then(response => handleResponseGet(response.data, driverID))
       .catch(err => console.log(err));

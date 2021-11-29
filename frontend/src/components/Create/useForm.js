@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import SERVER_URL from "../../utils/constants.js";
 
 const useForm = (validate) => {
 
@@ -54,7 +55,7 @@ const useForm = (validate) => {
     useEffect(
         () => {
             if (Object.keys(errors).length === 0 && isSubmitting) {
-                const endpointURL = `http://localhost:8080/requests`;
+                const endpointURL = `${SERVER_URL}/requests`;
                 axios.post(endpointURL, values)
                     .then(response => setQuote(response.data.quote))
                     .then(setOpenSuccess(true))

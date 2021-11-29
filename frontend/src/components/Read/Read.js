@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Table } from 'semantic-ui-react';
 import axios from 'axios';
+import SERVER_URL from "../../utils/constants.js";
 
 function Read() {
 
@@ -10,7 +11,7 @@ function Read() {
 
   
   const getRecord = () => {
-    const endpointURL = `http://localhost:8080/requests/${id}`;
+    const endpointURL = `${SERVER_URL}/requests/${id}`;
     axios.get(endpointURL)
       .then(response => handleResponseGet(response.data))
       .catch(err => console.log(err));

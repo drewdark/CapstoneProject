@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Modal } from 'semantic-ui-react';
 import axios from 'axios';
+import SERVER_URL from "../../utils/constants.js";
 
 
 function Update() {
@@ -19,7 +20,7 @@ function Update() {
   }
 
   const updateRecord = () => {
-    const endpointURL = `http://localhost:8080/requests?id=${id}&phone=${phone}`;
+    const endpointURL = `${SERVER_URL}/requests?id=${id}&phone=${phone}`;
     axios.put(endpointURL)
       .then(handleSuccessfulUpdate)
       .catch(err => console.log(err));
@@ -35,7 +36,7 @@ function Update() {
 
   const handleChangeID = (driverID) => {
     setID(driverID);
-    const endpointURL = `http://localhost:8080/requests/${driverID}`;
+    const endpointURL = `${SERVER_URL}/requests/${driverID}`;
     axios.get(endpointURL)
       .then(response => handleResponseGet(response.data))
       .catch(err => console.log(err));
