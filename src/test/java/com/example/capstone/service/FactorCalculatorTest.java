@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions.*;
 import org.springframework.util.Assert;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FactorCalculatorTest {
 
@@ -124,6 +123,11 @@ public class FactorCalculatorTest {
 
 
         assertEquals("332.22", myCalculator.calculateInsuranceQuote(driver));
+    }
+
+    @Test
+    public void failTest(){
+        fail();
     }
 
 }
