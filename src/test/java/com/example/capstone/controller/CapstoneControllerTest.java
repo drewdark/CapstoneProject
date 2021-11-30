@@ -3,6 +3,7 @@ package com.example.capstone.controller;
 import com.example.capstone.model.Request;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.var;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,50 +23,49 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class CapstoneControllerTest {
-/*
+
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
 
-
     @Test
-    void givenDBInitilizedWith1Record1_whenGETPeople_shouldReturn1Item() throws Exception {
+    void givenDBInitilizedWith3Records_whenGETPeople_shouldReturn3Items() throws Exception {
         final var mvcResult = mockMvc
                 .perform(get("/requests"))
                 .andDo(print())
                 .andReturn();
 
-        final var contentAsString = mvcResult.getResponse().getContentAsString();
+        final String contentAsString = mvcResult.getResponse().getContentAsString();
 
         List<Request> peopleFromDB = objectMapper.readValue(contentAsString, new TypeReference<>(){});
 
-        assertEquals(1, peopleFromDB.size());
+        assertEquals(3, peopleFromDB.size());
     }
 
     @Test
     @DirtiesContext
     void givenDBInitializedWith3Records_whenPOSTPeople_shouldSaveAndReturn() throws Exception {
-        var firstName = "Andrew";
-        var lastName = "Dark";
-        var id = 1L;
-        var prefix = "Mr";
-        var telNumber= "12345678910";
-        var address1 = "123";
-        var address2 = "Something Road";
-        var city = "Belfast";
-        var postCode = "BT123";
-        var carType = "Cabriolet";
-        var engineSize = "1600";
-        var additionalDrivers = "1";
-        var commercialPurposes = "false";
-        var outsideState = "false";
-        var dateRegistered = "10-02-2021";
-        var vehicleValue = "6000";
-        var comments = ":)";
+        String firstName = "Andrew";
+        String lastName = "Dark";
+        Long id = 1L;
+        String prefix = "Mr";
+        String telNumber= "12345678910";
+        String address1 = "123";
+        String address2 = "Something Road";
+        String city = "Belfast";
+        String postCode = "BT123";
+        String carType = "Cabriolet";
+        String engineSize = "1600";
+        String additionalDrivers = "1";
+        String commercialPurposes = "false";
+        String outsideState = "false";
+        String dateRegistered = "10-02-2021";
+        String vehicleValue = "6000";
+        String comments = ":)";
         Request person = new Request(id, prefix, firstName, lastName,  telNumber, address1, address2, city, postCode, carType, engineSize, additionalDrivers, commercialPurposes, outsideState, vehicleValue, dateRegistered, comments);
 
-        final var personAsJSON = objectMapper.writeValueAsString(person);
+        final String personAsJSON = objectMapper.writeValueAsString(person);
 
         final var mvcResult = mockMvc
                 .perform(post("/requests")
@@ -75,7 +75,7 @@ class CapstoneControllerTest {
                 .andDo(print())
                 .andReturn();
 
-        final var contentAsString = mvcResult.getResponse().getContentAsString();
+        final String contentAsString = mvcResult.getResponse().getContentAsString();
 
         Request savedPerson = objectMapper.readValue(contentAsString, Request.class);
 
@@ -90,7 +90,7 @@ class CapstoneControllerTest {
     @DirtiesContext
     void givenDBInitilizedWith3Records_whenDELETEPeopleWithExistingID_shouldReturn200() throws Exception {
 
-        var existingId= 1;
+        int existingId= 1;
 
         final var mvcResult = mockMvc
                 .perform(delete("/requests/" + existingId)
@@ -99,7 +99,4 @@ class CapstoneControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk());
     }
-
-
- */
 }

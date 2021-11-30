@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class FactorCalculatorTest {
-/*
+
     @Test
     public void testCalculateVehicleTypeFactor(){
 
@@ -80,8 +80,8 @@ public class FactorCalculatorTest {
 
         FactorCalculator myCalculator = new FactorCalculator();
 
-        assertEquals(1.1, myCalculator.calculateCommercialUseFactor("Yes"), 0.0);
-        assertEquals(1.0, myCalculator.calculateCommercialUseFactor("No"), 0.0);
+        assertEquals(1.1, myCalculator.calculateCommercialUseFactor("true"), 0.0);
+        assertEquals(1.0, myCalculator.calculateCommercialUseFactor("false"), 0.0);
 
     }
 
@@ -90,40 +90,40 @@ public class FactorCalculatorTest {
 
         FactorCalculator myCalculator = new FactorCalculator();
 
-        assertEquals(1.1, myCalculator.calculateOutsideStateUseFactor("Yes"), 0.0);
-        assertEquals(1.0, myCalculator.calculateOutsideStateUseFactor("No"), 0.0);
+        assertEquals(1.1, myCalculator.calculateOutsideStateUseFactor("true"), 0.0);
+        assertEquals(1.0, myCalculator.calculateOutsideStateUseFactor("false"), 0.0);
 
     }
 
 
     @Test
-    public void testCalculateInsurcanceQuote(){
+    public void testCalculateInsuranceQuote(){
 
         // setup driver
-        var firstName = "Robyn";
-        var lastName = "Thompson";
-        var id = 1L;
-        var prefix = "Miss";
-        var telNumber= "12345678910";
-        var address1 = "123";
-        var address2 = "Something Road";
-        var city = "Belfast";
-        var postCode = "BT123";
-        var carType = "Cabriolet";
-        var engineSize = "1600";
-        var additionalDrivers = "1";
-        var commercialPurposes = "Yes";
-        var outsideState = "Yes";
-        var dateRegistered = "10-02-2021";
-        var vehicleValue = "6000";
-        var comments = ":)";
+        String firstName = "Andrew";
+        String lastName = "Dark";
+        Long id = 1L;
+        String prefix = "Mr";
+        String telNumber= "12345678910";
+        String address1 = "123";
+        String address2 = "Something Road";
+        String city = "Belfast";
+        String postCode = "BT123";
+        String carType = "Cabriolet";
+        String engineSize = "1600";
+        String additionalDrivers = "1";
+        String commercialPurposes = "true";
+        String outsideState = "true";
+        String dateRegistered = "10-02-2021";
+        String vehicleValue = "6000";
+        String comments = ":)";
         Request driver = new Request(id, prefix, firstName, lastName,  telNumber, address1, address2, city, postCode, carType, engineSize, additionalDrivers, commercialPurposes, outsideState, vehicleValue, dateRegistered, comments);
 
 
         FactorCalculator myCalculator = new FactorCalculator();
 
 
-        assertEquals("332.27", myCalculator.calculateInsuranceQuote(driver));
+        assertEquals("332.22", myCalculator.calculateInsuranceQuote(driver));
     }
-    */
+
 }
