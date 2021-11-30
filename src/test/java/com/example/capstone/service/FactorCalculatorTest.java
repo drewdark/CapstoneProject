@@ -125,9 +125,4 @@ public class FactorCalculatorTest {
         assertEquals("332.22", myCalculator.calculateInsuranceQuote(driver));
     }
 
-    @Test
-    public void failTest(){
-        fail();
-    }
-
 }
